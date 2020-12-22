@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project</title>
+
+    <link rel="stylesheet" href="{% static  '/vendor/bootstrap4/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/users/auth.css' %}" type="text/css">
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+        <strong>{{ error }}</strong>
+    </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+        <div class="auth-content">
+            <div class="card" style="background-color: lavender; border-radius: 30px;box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+                {% block login %}
+                {% endblock %}
+                {% block reset %}{% endblock %}
+                {% block content %}
+		 
+		{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/vendor/jquery3/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static '/vendor/bootstrap4/js/bootstrap.min.js' %}"></script>
+	
+</body>
+
+</html>

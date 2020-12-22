@@ -1,0 +1,121 @@
+
+<! Doctype html>
+
+{% load static  %}
+ 
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href=" {% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href=" {% static 'font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href=" {% static 'footer.css' %}">
+ <script type="text/javascript" src="{% static 'bootstrap.min.js' %}"></script>
+ <script type="text/javascript" src="{% static 'jquery-3.2.1.slim.min.js' %}"></script>
+<title>home page</title>
+</head>
+
+<body>
+<div class="jumbotron" style="background-color:maroon">
+  
+	<ul style="float:right; list-style-type:none">
+<li style="display:inline;background-color:maroon;color:white; padding:10px; background-color: black; border-radius: 100px">Home</li>
+<li style="display:inline;background-color:maroon;color:white;padding:10px; background-color: black; border-radius: 100px">About</li>
+<li style="display:inline;background-color:maroon;color:white;padding:10px; background-color: black; border-radius: 100px">Contact</li>
+<li style="display:inline;background-color:maroon;color:white;padding:10px; background-color: black; border-radius: 100px"><a href="{% url 'register' %}">Register</a></li>
+<li style="display:inline;background-color:maroon;color:white;padding:10px; background-color: black; border-radius: 100px"> <a href="{% url 'login_page' %}">Login</a></li>
+</ul>
+<br/>
+<br/>
+</div>
+<hr style="color:red">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-8" style="height:400px; background-color:maroon; background-image: url({% static 'cover.jpg' %}); background-position: center; background-size: cover;">
+	<br/>
+	 <center>
+	 	<div style="width: 420px;  height: 300px; background-color: rgba(20,20,0,0.1);">
+	 		<br/>
+	 		<br/>
+	 		<h1 style="color: white">SMART BATHROOM UPDATER</h1>
+
+	 	</div>
+
+	 </center>
+
+
+</div>
+<div class="col-sm-4" style="height:400px; background-color:maroon">
+	<br/>
+	<center>
+		<p style="color: white">In other to make proper use of the App, kindly login to your user dashoard to see the real time status of the Bathroom. Remember you can see those who have requested to use the bathroom and you can also make your own request.</p>
+	</center>
+
+	<center>
+	{% for  record in user_records %}
+	<marquee direction="up">
+	<table cellspacing="10px" cellpadding="10px" style="border: 2px solid white; color: green">
+			<tr>
+				<th>S/N</th>
+				<th>UserId</th>
+				<th>Time Requested</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>{{ record.firstname }}</td>
+				<td>21:02</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>{{ record.lastname}}</td>
+				<td>22:05</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>{{record.matno}}</td>
+				<td>22:05</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>{{record.email }}</td>
+				<td>22:05</td>
+			</tr>
+		</table>
+	</marquee>
+     {% endfor %}
+		<br/>
+		<button class="btn-primary btn-lg">Book a Slot</button>
+		<span style="background-color: green; border-radius: 200px; padding: 5px">Bathroom is open!</span>
+		<i style="background-color: red; border-radius: 200px; padding: 5px">Bathroom Closed!</i>
+
+	</center>
+
+</div>
+ 
+ 
+</div>
+</div>
+<br/>
+
+<h3>Javascript goes here!</h3>{{dcontext}}
+<script type="text/javascript">
+	 $(document).ready(function(){
+	 	$('i').hide();
+	 	$('button').click(function(){
+
+	 		$(this).hide();
+	 		$('span').hide();
+	 		alert("Slot Booked!");
+	 		$('i').show();
+	 	});
+
+	 }
+	 	);
+
+</script>
+ 
+ 
+
+<div class="footer_div">fehjejr</div>
+</body>
+</html>

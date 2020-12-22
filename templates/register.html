@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block login %}
+
+<div class="card-body text-center" style="background-color:maroon; color:white">
+    <div class="mb-4">
+        <img class="brand" src="" alt="LOGO">
+    </div>
+    <h6 class="mb-4 text-muted">REGISTER</h6>
+
+    <form action="" method="POST">
+        <center>username</center>
+        {% csrf_token %}
+        </br>
+        {{ form.username }}
+        </br>
+        <center>email</center>
+        {{ form.email }}
+        </br>
+        <center>pasword</center>
+        {{ form.password1 }}
+        </br>
+        <center>confirm password</center>
+        {{ form.password2 }}
+        </br>
+        <button class="btn btn-secondary shadow-2 mb-4 mt-2">REGISTER</button>
+    </form>
+    <p class="mb-0 text-muted"> have an account? <a href="{% url 'login_page' %}">login!</a></p>
+</div>
+
+{% endblock %}
